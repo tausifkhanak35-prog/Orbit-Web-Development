@@ -87,7 +87,7 @@ color:#fff;visibility:hidden;opacity:0;transition:opacity .42s var(--ease),visib
 .mcontact a{transition:color .25s}
 .mcontact a:hover{color:var(--yellow)}
 
-/* ============ HERO ============ */
+/* ============ HERO (Left Aligned) ============ */
 .hero{
   position:relative;
   min-height:100vh;
@@ -97,42 +97,29 @@ color:#fff;visibility:hidden;opacity:0;transition:opacity .42s var(--ease),visib
   align-items:center;
   overflow:hidden;
   isolation:isolate;
-  /* Added home.png with a dark gradient overlay for perfect text readability */
+  /* Gradient is dark on the left for text, transparent on the right to show the laptop */
   background: 
-    linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.85)),
+    linear-gradient(to right, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.75) 45%, rgba(10, 10, 10, 0.1) 100%),
     url('home.png') center center / cover no-repeat,
     #0a0a0a;
   color:#fff;
 }
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,70px);align-items:center;width:100%}
+
+/* Text is restricted to the left side so it doesn't cover the laptop */
+.hero-grid{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;width:100%;max-width:650px;margin:0}
+
 .kicker{display:inline-flex;align-items:center;gap:14px;font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:26px}
 .kicker::before{content:"";width:44px;height:2px;background:var(--yellow)}
-.hero h1{font-size:clamp(2.5rem,5.6vw,5rem);line-height:1.03;letter-spacing:-.025em;margin-bottom:28px;color:#fff}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.8rem);line-height:1.03;letter-spacing:-.025em;margin-bottom:28px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,0.4)}
 .hero h1 span{display:block}.hero h1 .l2{color:var(--yellow);font-style:italic}
-.lede{font-size:clamp(1rem,1.25vw,1.12rem);color:rgba(255,255,255,.88);line-height:1.75;max-width:560px;margin-bottom:36px}
-.acts{display:flex;flex-wrap:wrap;gap:14px}
+.lede{font-size:clamp(1rem,1.25vw,1.12rem);color:rgba(255,255,255,.88);line-height:1.75;max-width:520px;margin-bottom:36px;text-shadow:0 2px 12px rgba(0,0,0,0.5)}
+.acts{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start}
 .fade{opacity:0;transform:translateY(28px)}
 body.loaded .fade{animation:fade 1s var(--ease) forwards}
 body.loaded .d1{animation-delay:.15s}body.loaded .d2{animation-delay:.3s}body.loaded .d3{animation-delay:.45s}
 @keyframes fade{to{opacity:1;transform:none}}
-.mock{background:#fff;border-radius:20px;box-shadow:0 50px 90px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.08);overflow:hidden;color:#0e0e0e;animation:float 7s ease-in-out infinite;position:relative}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-.bar{display:flex;gap:7px;align-items:center;padding:12px 16px;background:#efe9db}
-.bar i{width:10px;height:10px;border-radius:50%;background:#d6cfbd}.bar i:first-child{background:#ff6b5e}.bar i:nth-child(2){background:#ffb800}.bar i:nth-child(3){background:#34c759}
-.bar span{margin-left:10px;flex:1;background:#fff;border-radius:99px;font-size:.7rem;padding:4px 12px;color:#6e6e6e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mb{padding:22px}
-.mn{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.mn b{font:700 1rem var(--fd)}.mn span{width:70px;height:8px;border-radius:9px;background:#e6e0d2;display:block}
-.mh{font:700 1.7rem/1.1 var(--fd);margin-bottom:10px}.mh em{color:#e5a300}
-.mp{height:8px;border-radius:9px;background:#e6e0d2;margin-bottom:8px;width:90%}.mp.s{width:62%}
-.mbtn{display:inline-block;background:#ffb800;border-radius:99px;font-size:.72rem;font-weight:800;padding:9px 18px;margin:14px 0 20px}
-.mc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.mc div{height:64px;border-radius:12px;background:#f7f4ec;border:1px solid #e6e0d2;position:relative}
-.mc div::before{content:"";position:absolute;left:10px;top:10px;width:20px;height:20px;border-radius:50%;background:#ffb800}
-.badge{position:absolute;right:-14px;bottom:-26px;width:122px;height:122px;border-radius:50%;background:#ffb800;color:#0e0e0e;display:grid;place-items:center;text-align:center;box-shadow:0 20px 40px -14px rgba(255,184,0,.7);border:5px solid #0a0a0a;transform:rotate(8deg)}
-.badge small{display:block;font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.badge strong{display:block;font:700 1.9rem/1 var(--fd)}
+
 .trust{padding:30px 0;background:var(--cream);border-block:1px solid var(--line);overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;width:max-content;animation:scroll 34s linear infinite}
 .track:hover{animation-play-state:paused}
@@ -237,10 +224,25 @@ body.menu-open{overflow:hidden}
 @media(max-width:1000px){
   .nav{display:none}
   .burger{display:flex}
-  .hero-grid,.ag,.pg,.why,.cg{grid-template-columns:1fr}
+  .ag,.pg,.why,.cg{grid-template-columns:1fr}
   .grid3{grid-template-columns:repeat(2,1fr)}
   .tcard{position:static}
-  .mock{max-width:460px}
+  
+  /* Center the hero text on tablet/mobile since the background image crops */
+  .hero{
+    background: 
+      linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)),
+      url('home.png') center center / cover no-repeat,
+      #0a0a0a;
+  }
+  .hero-grid{
+    align-items:center;
+    text-align:center;
+    margin:0 auto;
+    max-width:800px;
+  }
+  .lede{margin-inline:auto;}
+  .acts{justify-content:center;}
   .hero{min-height:auto;padding:120px 0 84px}
   .hi{height:70px}
 }
@@ -255,8 +257,6 @@ body.menu-open{overflow:hidden}
   .acts{gap:12px}
   .acts .btn{width:100%}
   .grid3,.form{grid-template-columns:1fr}
-  .badge{right:-6px;bottom:-18px;width:100px;height:100px}
-  .badge strong{font-size:1.5rem}
   .card{padding:28px 24px}
   .stat{padding:22px 18px}
   .stat b{font-size:2.1rem}
@@ -320,25 +320,12 @@ body.menu-open{overflow:hidden}
 
 <main>
 <section class="hero" id="home">
-<div class="container hero-grid">
-<div>
+<div class="container">
+<div class="hero-grid">
 <div class="kicker fade">Websites for Qatar businesses</div>
 <h1 class="fade d1"><span>A professional website</span><span class="l2">that brings you customers.</span></h1>
 <p class="lede fade d2">We design, build and launch your business website. Hosting, deployment and one year of free service are included in one clear price.</p>
 <div class="acts fade d3"><a href="#contact" class="btn btn-y btn-lg">Get Started</a><a href="#pricing" class="btn btn-o btn-lg">See Pricing</a></div>
-</div>
-<div class="fade d2" aria-hidden="true">
-<div class="mock">
-<div class="bar"><i></i><i></i><i></i><span>www.yourbusiness.com</span></div>
-<div class="mb">
-<div class="mn"><b>Your Business</b><span></span></div>
-<div class="mh">Welcome to <em>your brand.</em></div>
-<div class="mp"></div><div class="mp s"></div>
-<span class="mbtn">Contact us</span>
-<div class="mc"><div></div><div></div><div></div></div>
-</div>
-<div class="badge"><div><small>from</small><strong>700</strong><small>QR</small></div></div>
-</div>
 </div>
 </div>
 </section>
